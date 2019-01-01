@@ -20,7 +20,7 @@ Date.prototype.format = function() {
 
 // TODO: this json has to be updated for every IC cohort
 var map = {
-  "2018-11-06": "01",
+  "2019-01-01": "01",
   "2018-11-07": "02",
   "2018-11-08": "03",
   "2018-11-09": "04",
