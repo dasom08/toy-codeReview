@@ -22,8 +22,6 @@ exec('npm test | grep -E \"[0-9]+\\s(passing|failing)\"', (err, stdout1, stderr)
     let faling = matchWithFaling ? Number(matchWithFaling[1]) : 0
 
     exec('echo "$airtable_api_key"', (err, apikey) => {
-        console.log(apikey)
-        console.log(apikey.trim())
         const options = {
             hostname: 'api.airtable.com',
             path: '/v0/app8kEq9wXlsuffDy/Toy%20Problem',
