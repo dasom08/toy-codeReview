@@ -5,12 +5,13 @@
 1. First, you put your name and batch in student.json.
 ```json
 {
-    "th": "Immersive 기수를 입력해 주세요", // 
+    "th": "Immersive 기수를 입력해 주세요",
     "name": "Put Your name",
-    "problemNumber": "Put Problem number ex)01, 02" // put formated number by prepending 0 to single-digit numbers 
+    "problemNumber": "Put Problem number ex)01, 02"
 }
 ```
 You can find out which problem you play with for each day on the Google Immersive Calendar.
+Put formated number by prepending 0 to single-digit numbers
 
 2. Make new branch.
 Please make each toy problem branch from master e.g. toy01, toy02.
