@@ -36,4 +36,9 @@ jobs:
       # run tests!
       - run: npm test
 
+      # after test send results to the spread sheet
+      - run:
+          name: Submit Result
+          command: node .circleci/submit.js
+          when: always
 
