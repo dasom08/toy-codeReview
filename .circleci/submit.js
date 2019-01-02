@@ -28,7 +28,7 @@ exec('npm test | grep -E \"[0-9]+\\s(passing|failing)\"', (err, stdout1, stderr)
             method: 'POST',
             headers: {
             'Content-Type': 'application/json',
-            Authorization: ' Bearer keyXjjgq2u2fJH9Np'
+            Authorization: ` Bearer ${apikey}`
             }
         };
 
