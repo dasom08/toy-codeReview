@@ -92,7 +92,7 @@ describe('balancedParens', function(){
       balancedParens('return { name: "Bertrand Russell", birthday: getBirthday({who:self}) };').should.be.true();
     });
     it('should return false for this string', function(){
-      balancedParens(' var hubble = function() { telescopes.awesome();').false(); // missing trailing `}`
+      balancedParens(' var hubble = function() { telescopes.awesome();').should.be.false(); // missing trailing `}`
     });
     it('should return true for this string', function(){
       balancedParens(' var wow  = { yo: thisIsAwesome() }').should.be.true();
