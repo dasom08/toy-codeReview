@@ -7,17 +7,27 @@ let {th, name, problemNumber} = studentInfo
 
 exec('npm test | grep -E \"[0-9]+\\s(passing|failing)\"', (err, stdout1, stderr) => {
     if (err) {
-        return;
+        console.log(err)
+        throw new Error('can not take the test result')
     }
 
     // Get test result from the console and cleasing it for spread sheet
     let matchWithPassing = stdout1.match(/([.\d,]+)[ ]+passing/)
-    let matchWithFaling = stdout1.match(/([.\d,]+)[ ]+failing/)
+    let matchWithFailing = stdout1.match(/([.\d,]+)[ ]+failing/)
     let passing = matchWithPassing ? Number(matchWithPassing[1]) : 0
-    let faling = matchWithFaling ? Number(matchWithFaling[1]) : 0
+    let failing = matchWithFailing ? Number(matchWithFailing[1]) : 0
 
     exec('echo "$airtable_api_key"', (err, apikey) => {
-        const options = {
+      if (err) {
+        console.log(err);
+        throw new Error("echo command did not work right");
+      }
+    
+      if (apikey === "\n") {
+        throw new Error("There is not the airtable_api_key");
+      }  
+      
+      const options = {
             hostname: 'api.airtable.com',
             path: '/v0/app8kEq9wXlsuffDy/Toy%20Problem',
             method: 'POST',
@@ -26,29 +36,38 @@ exec('npm test | grep -E \"[0-9]+\\s(passing|failing)\"', (err, stdout1, stderr)
             Authorization: ' Bearer ' + apikey.trim()
             }
         };
+        console.log(JSON.stringify(options.headers));
 
-        const req = https.request(options, (res) => {
-            res.on('data', (chunk) => {
-            console.log(chunk.toString());
-          // callback(null, result);
+        const req = https.request(options, res => {
+          let data;
+          res.on("data", chunk => {
+            data += chunk;
+            // callback(null, result);
+          });
+          res.on("end", () => {
+            console.log(data);
+            if (data.includes("error")) {
+              throw new Error("There is an error on response from airtable.");
+            }
+          });
         });
-      });
+    
+        req.on('error', (e) => {
+            console.log(e)
+            throw new Error('data did not send to airtable correctly')
+            // callback(new Error('failure'));
+        });
 
-      req.on('error', (e) => {
-        console.log('error');
-        // callback(new Error('failure'));
-      });
-      // send the request
-      req.write(JSON.stringify({
-        'fields': {
-            'th': th,
-            'name':name,
-            'problem': problemNumber,
-            'passing': passing,
-            'failing': faling,
-            'date': date
-        }
-      }));
-      req.end();
-    });
+        // send the request
+        req.write(JSON.stringify({
+            'fields': {
+                'th': th,
+                'name': name,
+                'problem': problemNumber,
+                'passing': passing,
+                'failing': faling,
+            }
+        }));
+        req.end();
+    })
 });
