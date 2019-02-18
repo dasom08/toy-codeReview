@@ -17,14 +17,10 @@
   },
   "homepage": "https://github.com/codestates/im10-2018-12-toy-problems#readme",
   "dependencies": {
-    "aws-sdk": "^2.88.0",
     "axios": "^0.16.2",
     "jquery": "^3.2.1",
     "jsdom": "^11.1.0",
     "mocha": "^3.4.2",
-    "mocha-junit-reporter": "^1.13.0",
-    "moment": "^2.23.0",
-    "moment-timezone": "^0.5.23",
     "should": "^11.2.1",
     "xml2json": "^0.11.0"
   }

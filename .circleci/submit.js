@@ -1,14 +1,9 @@
 const { exec } = require('child_process');
 const https = require('https');
-const moment = require('moment-timezone')
 
 // Get sutdent data from student.json
 let studentInfo = require('../student.json')
 let {th, name, problemNumber} = studentInfo
-
-// Create date time when the problem is submited
-moment.tz.setDefault("Asia/Seoul")
-let date = moment().format('YYYY-MM-DD')
 
 exec('npm test | grep -E \"[0-9]+\\s(passing|failing)\"', (err, stdout1, stderr) => {
     if (err) {
