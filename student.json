@@ -1,5 +1,5 @@
 {
-    "th": "Immersive 기수를 입력해 주세요",
-    "name": "Put Your name",
-    "problemNumber": "Put Problem number ex)01, 02"
+    "th": "이머시브 기수를 숫자만 입력하세요 ex) 12",
+    "name": "한글 이름을 입력해 주세요 ex) 존도우",
+    "problemNumber": "문제 번호를 두자리 숫자로 입력하세요 ex) 01, 02"
 }

@@ -4,24 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha -- ./$(node .circleci/preTest.js)**/**.test.js"
+    "test": "cross-env mocha -- ./$(node .circleci/preTest.js)**/**.test.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/codestates/im10-2018-12-toy-problems"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/codestates/im10-2018-12-toy-problems/issues"
-  },
-  "homepage": "https://github.com/codestates/im10-2018-12-toy-problems#readme",
-  "dependencies": {
+  "author": "codestates",
+  "devDependencies": {
+    "cross-env": "^5.2.0",
     "axios": "^0.16.2",
     "jquery": "^3.2.1",
     "jsdom": "^11.1.0",
     "mocha": "^3.4.2",
-    "should": "^11.2.1",
-    "xml2json": "^0.11.0"
+    "should": "^11.2.1"
   }
 }
