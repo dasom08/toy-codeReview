@@ -18,7 +18,7 @@ describe('BinaryHeap', function () {
   });
 
   it('should be a Function', function () {
-    BinaryHeap.should.be.a.Function;
+    BinaryHeap.should.be.a.Function();
   });
 
 });
@@ -27,7 +27,7 @@ describe('BinaryHeap.prototype.insert', function () {
 
   it('should exist', function () {
     should.exist(BinaryHeap.prototype.insert);
-    BinaryHeap.prototype.insert.should.be.a.Function;
+    BinaryHeap.prototype.insert.should.be.a.Function();
   });
 
   it('should add a value to an empty BinaryHeap instance', function () {
@@ -63,10 +63,10 @@ describe('BinaryHeap.prototype.insert', function () {
 
     // heap[0] is the parent of heap[1] and heap[2]
     // heap[1] is the parent of heap[3] and heap[4]
-    compare(heap[0], heap[1]).should.be.true;
-    compare(heap[0], heap[2]).should.be.true;
-    compare(heap[1], heap[3]).should.be.true;
-    compare(heap[1], heap[4]).should.be.true;
+    compare(heap[0], heap[1]).should.be.true();
+    compare(heap[0], heap[2]).should.be.true();
+    compare(heap[1], heap[3]).should.be.true();
+    compare(heap[1], heap[4]).should.be.true();
   });
 
 });
@@ -75,7 +75,7 @@ describe('BinaryHeap.prototype.removeRoot', function () {
 
   it('should exist', function () {
     should.exist(BinaryHeap.prototype.insert);
-    BinaryHeap.prototype.removeRoot.should.be.a.Function;
+    BinaryHeap.prototype.removeRoot.should.be.a.Function();
   });
 
   it('should return `undefined` on an empty heap', function () {
@@ -129,10 +129,10 @@ describe('BinaryHeap.prototype.removeRoot', function () {
 
     // heap[0] is the parent of heap[1] and heap[2]
     // heap[1] is the parent of heap[3] and heap[4]
-    compare(heap[0], heap[1]).should.be.true;
-    compare(heap[0], heap[2]).should.be.true;
-    compare(heap[1], heap[3]).should.be.true;
-    compare(heap[1], heap[4]).should.be.true;
+    compare(heap[0], heap[1]).should.be.true();
+    compare(heap[0], heap[2]).should.be.true();
+    compare(heap[1], heap[3]).should.be.true();
+    compare(heap[1], heap[4]).should.be.true();
   });
 
 });
