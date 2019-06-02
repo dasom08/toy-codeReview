@@ -17,13 +17,13 @@ describe('LinkedList', function() {
   });
 
   it('should be a function', function() {
-    LinkedList.should.be.a.Function;
+    LinkedList.should.be.a.Function();
   });
 
   it('should be implemented using the pseudoclassical pattern', function() {
-    LinkedList.prototype.addToTail.should.be.a.Function;
-    LinkedList.prototype.removeHead.should.be.a.Function;
-    LinkedList.prototype.contains.should.be.a.Function;
+    LinkedList.prototype.addToTail.should.be.a.Function();
+    LinkedList.prototype.removeHead.should.be.a.Function();
+    LinkedList.prototype.contains.should.be.a.Function();
   });
 
   it('should designate a new tail when new nodes are added', function() {
@@ -59,9 +59,9 @@ describe('LinkedList', function() {
     list.addToTail(5);
     list.head.value.should.equal(4);
     list.tail.value.should.equal(5);
-    list.contains(4).should.be.true;
-    list.contains(5).should.be.true;
-    list.contains(6).should.be.false;
+    list.contains(4).should.be.true();
+    list.contains(5).should.be.true();
+    list.contains(6).should.be.false();
   });
 
   it('should not contain a value that was removed', function() {
@@ -71,6 +71,6 @@ describe('LinkedList', function() {
     list.head.value.should.equal(4);
     list.tail.value.should.equal(5);
     list.removeHead();
-    list.contains(4).should.be.false;
+    list.contains(4).should.be.false();
   });
 });
