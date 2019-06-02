@@ -21,10 +21,9 @@
  * var result = boundFunc('bar');
  * result === 'foobar'; // true
  *
-*/
+ */
 
-var bind = function(
-) {
+var bind = function() {
   // TODO: Your code here
 };
 
@@ -51,9 +50,11 @@ var bind = function(
  * var result = boundFunc('bar');
  * result === 'foobar'; // true
  *
-*/
+ */
 
-Function.prototype.bind = function(
-) {
+Function.prototype.bind = function() {
   // TODO: Your code here
+  return function() {
+    // TODO: Your code here, too
+  };
 };
