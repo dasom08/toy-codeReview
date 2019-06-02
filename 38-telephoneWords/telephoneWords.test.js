@@ -16,7 +16,7 @@ describe('telephoneWords', function() {
     should.exist(telephoneWords);
   });
   it('should be a function', function() {
-    telephoneWords.should.be.a.Function;
+    telephoneWords.should.be.a.Function();
   });
   it('should return an array', function() {
     var result = telephoneWords('1234');
