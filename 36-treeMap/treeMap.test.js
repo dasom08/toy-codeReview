@@ -16,7 +16,7 @@ describe('Tree', function (){
     should.exist(Tree);
   });
   it('should be a function', function(){
-    Tree.should.be.a.Function;
+    Tree.should.be.a.Function();
   });
   describe('map()', function() {
     it('should exist on the Tree prototype', function(){
@@ -24,7 +24,7 @@ describe('Tree', function (){
     });
 
     it('should be a function', function() {
-      Tree.prototype.map.should.be.a.Function;
+      Tree.prototype.map.should.be.a.Function();
     });
 
     it('should return a Tree instance', function() {
@@ -119,7 +119,7 @@ describe('Tree', function (){
     });
 
     it('should be a function', function() {
-      Tree.prototype.mapInPlace.should.be.a.Function;
+      Tree.prototype.mapInPlace.should.be.a.Function();
     });
 
     it('should update the tree with doubled values if the function doubles the value', function() {
