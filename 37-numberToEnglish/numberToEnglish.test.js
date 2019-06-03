@@ -19,7 +19,7 @@ describe('toEnglish', function() {
   });
 
   it('should be a function', function() {
-    Number.prototype.toEnglish.should.be.a.Function;
+    Number.prototype.toEnglish.should.be.a.Function();
   });
 
   it('should write single digits', function () {

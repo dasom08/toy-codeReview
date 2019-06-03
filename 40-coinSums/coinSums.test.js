@@ -17,7 +17,7 @@ describe('makeChange()', function() {
   });
 
   it('should be a function', function(){
-    makeChange.should.be.a.Function;
+    makeChange.should.be.a.Function();
   });
 
   function makeChangeTestFunction(input, output){

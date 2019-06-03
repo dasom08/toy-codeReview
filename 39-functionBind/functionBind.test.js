@@ -17,13 +17,13 @@ describe('bind', function(){
   });
 
   it('should be a function', function(){
-    bind.should.be.a.Function;
+    bind.should.be.a.Function();
   });
   it('should return a function', function(){
     var func = function(){ };
     var res = bind(func);
     should.exist(res);
-    res.should.be.a.Function;
+    res.should.be.a.Function();
   });
   it('should not return the original function', function(){
     var func = function(){ };
@@ -61,7 +61,7 @@ describe('bind', function(){
     var boundFunc = bind(func, context, 'foo');
     var result = boundFunc();
     should.exist(result);
-    result.should.be.a.String;
+    result.should.be.a.String();
     result.should.equal('foo');
   });
   it('should allow the bound function to be called multiple times with different arguments', function(){
@@ -89,7 +89,7 @@ describe('bind', function(){
     var boundFunc = bind(func, context, 'foo', 'bar');
     var result = boundFunc();
     should.exist(result);
-    result.should.be.a.String;
+    result.should.be.a.String();
     result.should.equal('foobar');
   });
   it('should bind only first and second arguments (in this example) and allow the bound function to take the third', function(){
@@ -100,7 +100,7 @@ describe('bind', function(){
     // should call `func` with a='foo', b='bar', c='baz'
     var result = boundFunc('baz');
     should.exist(result);
-    result.should.be.a.String;
+    result.should.be.a.String();
     result.should.equal('foobarbaz');
   });
   it('should bind only the first and second arguments (in this example) and allow the bound function to take the third and fourth', function(){
@@ -111,7 +111,7 @@ describe('bind', function(){
     var boundFunc = bind(func, null, 'foo', 'bar');
     var result = boundFunc('biz','baz');
     should.exist(result);
-    result.should.be.a.String;
+    result.should.be.a.String();
     result.should.equal('foobarbizbaz');
   });
 });
@@ -121,13 +121,13 @@ describe('Function.prototype.bind', function(){
     should.exist(Function.prototype.bind);
   });
   it('should be a function', function(){
-    Function.prototype.bind.should.be.a.Function;
+    Function.prototype.bind.should.be.a.Function();
   });
   it('should return a function', function(){
     var func = function(){ };
     var res = func.bind();
     should.exist(res);
-    res.should.be.a.Function;
+    res.should.be.a.Function();
   });
   it('should not return the original function', function(){
     var func = function(){ };
@@ -165,7 +165,7 @@ describe('Function.prototype.bind', function(){
     var boundFunc = func.bind(context, 'foo');
     var result = boundFunc();
     should.exist(result);
-    result.should.be.a.String;
+    result.should.be.a.String();
     result.should.equal('foo');
   });
   it('should allow the bound function to be called multiple times with different arguments', function(){
@@ -193,7 +193,7 @@ describe('Function.prototype.bind', function(){
     var boundFunc = func.bind(context, 'foo', 'bar');
     var result = boundFunc();
     should.exist(result);
-    result.should.be.a.String;
+    result.should.be.a.String();
     result.should.equal('foobar');
   });
   it('should bind only first and second arguments (as in this example) and allow the bound function to take the third', function(){
@@ -204,7 +204,7 @@ describe('Function.prototype.bind', function(){
     // should call `func` with a='foo', b='bar', c='baz'
     var result = boundFunc('baz');
     should.exist(result);
-    result.should.be.a.String;
+    result.should.be.a.String();
     result.should.equal('foobarbaz');
   });
   it('should bind only the first and second arguments (as in this example) and allow the bound function to take the third and fourth', function(){
@@ -215,7 +215,7 @@ describe('Function.prototype.bind', function(){
     var boundFunc = func.bind(null, 'foo', 'bar');
     var result = boundFunc('biz','baz');
     should.exist(result);
-    result.should.be.a.String;
+    result.should.be.a.String();
     result.should.equal('foobarbizbaz');
   });
 
