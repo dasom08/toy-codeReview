@@ -17,7 +17,7 @@ describe('powerSet', function () {
   });
 
   it('should be a function', function(){
-    powerSet.should.be.a.Function;
+    powerSet.should.be.a.Function();
   });
 
   it('should return something', function(){

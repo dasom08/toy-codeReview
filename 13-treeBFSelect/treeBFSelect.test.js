@@ -23,13 +23,13 @@ describe('BFSelect', function() {
   });
 
   it('should be a function', function() {
-    Tree.prototype.BFSelect.should.be.a.Function;
+    Tree.prototype.BFSelect.should.be.a.Function();
   });
 
   it('should return an array', function() {
     var root = new Tree('root');
     var all = function () { return true; };
-    root.BFSelect(all).should.be.an.Array;
+    root.BFSelect(all).should.be.an.Array();
   });
 
   it('should return all nodes in the tree if filter always returns true', function() {

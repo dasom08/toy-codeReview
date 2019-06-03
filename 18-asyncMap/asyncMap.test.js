@@ -22,7 +22,7 @@ describe('asyncMap', function() {
   });
 
   it('should be a function', function(){
-    asyncMap.should.be.a.Function;
+    asyncMap.should.be.a.Function();
   });
 
   it('should take two arguments', function(){

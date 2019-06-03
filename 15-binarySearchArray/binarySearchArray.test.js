@@ -17,7 +17,7 @@ describe('binarySearch', function() {
   });
 
   it('should be a function', function() {
-    binarySearch.should.be.a.Function;
+    binarySearch.should.be.a.Function();
   });
 
   it('should return 0 for 5 in [5]', function() {

@@ -21,11 +21,11 @@ describe('sortableTable', function() {
 
   it('should be an HTML table', function(){
     // should have at least one of each of the following elements:
-    $('table').length.should.be.ok;
-    $('th').length.should.be.ok;
-    $('tbody').length.should.be.ok;
-    $('tr').length.should.be.ok;
-    $('td').length.should.be.ok;
+    $('table').length.should.be.ok();
+    $('th').length.should.be.ok();
+    $('tbody').length.should.be.ok();
+    $('tr').length.should.be.ok();
+    $('td').length.should.be.ok();
   });
 
   it('should contain a first column of words', function(){
@@ -39,8 +39,8 @@ describe('sortableTable', function() {
 
     // test that each value is a string that cannot be converted to a number
     for (var i = 0; i < values.length; i++) {
-      values[i].should.be.a.String;
-      parseInt(values[i]).should.be.NaN;
+      values[i].should.be.a.String();
+      parseInt(values[i]).should.be.NaN();
     }
   });
 
@@ -103,7 +103,7 @@ describe('sortableTable', function() {
     // test that each value is an even number
     for (var i = 0; i < values.length; i++) {
       var val = parseFloat(values[i]);
-      val.should.not.be.NaN;
+      val.should.not.be.NaN();
       // test for integer
       (val % 1).should.eql(0);
     }
@@ -143,7 +143,7 @@ describe('sortableTable', function() {
     // test that each value is a string, and cannot be converted to a number
     for (var i = 0; i < values.length; i++) {
       var val = parseFloat(values[i]);
-      val.should.not.be.NaN;
+      val.should.not.be.NaN();
     }
   });
 
@@ -181,7 +181,7 @@ describe('sortableTable', function() {
     // test that each value is a date in the format of YYYY-MM-DD
     for (var i = 0; i < values.length; i++) {
       var val = values[i];
-      val.should.not.be.NaN;
+      val.should.not.be.NaN();
       val.split('-').length.should.eql(3);
     }
   });

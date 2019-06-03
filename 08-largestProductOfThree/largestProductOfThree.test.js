@@ -18,14 +18,14 @@ describe('largestProductOfThree', function() {
   });
 
   it('should be a function', function() {
-    largestProductOfThree.should.be.a.Function;
+    largestProductOfThree.should.be.a.Function();
     // `largestProductOfThree` isn't a function!
   });
 
   it('should return an integer', function() {
     var result = largestProductOfThree([1,2,3]);
 
-    result.should.be.a.number;
+    result.should.be.a.Number();
     // `largestProductOfThree` isn't returning a number!
   });
 

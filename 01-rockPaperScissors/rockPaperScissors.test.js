@@ -16,7 +16,7 @@ describe('rockPaperScissors', function(){
     should.exist(rockPaperScissors);
   });
   it('should be a function', function(){
-    rockPaperScissors.should.be.a.Function;
+    rockPaperScissors.should.be.a.Function();
   });
   it('should return an array', function(){
     rockPaperScissors().should.be.an.instanceOf(Array)
@@ -51,11 +51,11 @@ describe('rockPaperScissors', function(){
     }
     var expected_keys = Object.keys(expected_hash);
     for(i = 0; i < expected_keys.length; i++){
-      result_hash[expected_keys[i]].should.be.true;
+      result_hash[expected_keys[i]].should.be.true();
     }
     var result_keys = Object.keys(result_hash);
     for(i = 0; i < result_keys.length; i++){
-      expected_hash[result_keys[i]].should.be.true;
+      expected_hash[result_keys[i]].should.be.true();
     }
   });
   describe('EXTRA CREDIT', function () {
@@ -83,11 +83,11 @@ describe('rockPaperScissors', function(){
       }
       var expected_keys = Object.keys(expected_hash);
       for(i = 0; i < expected_keys.length; i++){
-        result_hash[expected_keys[i]].should.be.true;
+        result_hash[expected_keys[i]].should.be.true();
       }
       var result_keys = Object.keys(result_hash);
       for(i = 0; i < result_keys.length; i++){
-        expected_hash[result_keys[i]].should.be.true;
+        expected_hash[result_keys[i]].should.be.true();
       }
     });
     it('should return results for rockPaperScissors(1)', function(){
@@ -103,11 +103,11 @@ describe('rockPaperScissors', function(){
       }
       var expected_keys = Object.keys(expected_hash);
       for(i = 0; i < expected_keys.length; i++){
-        result_hash[expected_keys[i]].should.be.true;
+        result_hash[expected_keys[i]].should.be.true();
       }
       var result_keys = Object.keys(result_hash);
       for(i = 0; i < result_keys.length; i++){
-        expected_hash[result_keys[i]].should.be.true;
+        expected_hash[result_keys[i]].should.be.true();
       }
     });
     it('should return results for rockPaperScissors(5)', function () {
@@ -123,11 +123,11 @@ describe('rockPaperScissors', function(){
       }
       var expected_keys = Object.keys(expected_hash);
       for(i = 0; i < expected_keys.length; i++){
-        result_hash[expected_keys[i]].should.be.true;
+        result_hash[expected_keys[i]].should.be.true();
       }
       var result_keys = Object.keys(result_hash);
       for(i = 0; i < result_keys.length; i++){
-        expected_hash[result_keys[i]].should.be.true;
+        expected_hash[result_keys[i]].should.be.true();
       }
     });
   });

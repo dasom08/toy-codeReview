@@ -17,7 +17,7 @@ describe('translateRomanNumeral', function() {
   });
 
   it('should be a function', function(){
-    translateRomanNumeral.should.be.a.Function;
+    translateRomanNumeral.should.be.a.Function();
   });
 
   it('should translate I', function(){
