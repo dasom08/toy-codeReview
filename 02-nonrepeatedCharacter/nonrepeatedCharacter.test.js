@@ -18,7 +18,7 @@ describe('nonrepeatedCharacter', function() {
   });
 
   it('should be a function', function(){
-    firstNonRepeatedCharacter.should.be.a.Function;
+    firstNonRepeatedCharacter.should.be.a.Function();
   });
 
   it('should return `null` for empty string', function(){

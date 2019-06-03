@@ -16,11 +16,11 @@ describe('longestRun', function () {
   });
 
   it('should be a function', function () {
-    longestRun.should.be.a.Function;
+    longestRun.should.be.a.Function();
   });
 
   it('should return an array', function () {
-    longestRun('abc').should.be.an.Array;
+    longestRun('abc').should.be.an.Array();
   });
 
   it('should return an array with only two elements', function(){

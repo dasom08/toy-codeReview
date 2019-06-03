@@ -20,12 +20,12 @@ describe('composePipe', function(){
       should.exist(compose);
     });
     it('should be a function', function(){
-      compose.should.be.a.Function;
+      compose.should.be.a.Function();
     });
     it('should return a function', function(){
       var result = compose(function(){return 'Hi!';});
       should.exist(result);
-      result.should.be.a.Function;
+      result.should.be.a.Function();
     });
     it('should be able to compose 2 functions', function(){
       var greet = function(name){return 'hi: ' + name;};
@@ -39,7 +39,7 @@ describe('composePipe', function(){
       var first = function(array){return array[0];};
       var shift = function(array){return array.slice(1);};
       var fifth = compose(first, shift, shift,shift, shift);
-      fifth.should.be.a.Function;
+      fifth.should.be.a.Function();
       (fifth([1,2,3,4,5,6,7,8,9])).should.equal(5);
     });
 
@@ -47,7 +47,7 @@ describe('composePipe', function(){
       var first = function(array){return array[0];};
       var shift = function(array){return array.slice(1);};
       var fifth = compose(first, shift, shift, compose(shift, shift));
-      fifth.should.be.a.Function;
+      fifth.should.be.a.Function();
       (fifth([1,2,3,4,5,6,7,8,9])).should.equal(5);
     });
   });
@@ -57,12 +57,12 @@ describe('composePipe', function(){
       should.exist(pipe);
     });
     it('should be a function', function(){
-      pipe.should.be.a.Function;
+      pipe.should.be.a.Function();
     });
     it('should return a function', function(){
       function add2(value){return value + 2;}
       function multiplyBy3(number){return number * 3;}
-      (pipe(add2, multiplyBy3)).should.be.a.Function;
+      (pipe(add2, multiplyBy3)).should.be.a.Function();
     });
     it('should pass the input through a function', function(){
       function add2(value){return value + 2;}

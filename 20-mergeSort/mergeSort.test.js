@@ -17,7 +17,7 @@ describe('mergeSort', function() {
   });
 
   it('should be a function', function() {
-    mergeSort.should.be.a.Function;
+    mergeSort.should.be.a.Function();
   });
 
   it('should return an array', function() {

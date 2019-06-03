@@ -17,7 +17,7 @@ describe('spiralTraversal', function() {
   });
 
   it('should be a function', function(){
-    spiralTraversal.should.be.a.Function;
+    spiralTraversal.should.be.a.Function();
   });
 
   it('should spirally traverse a square matrix', function() {

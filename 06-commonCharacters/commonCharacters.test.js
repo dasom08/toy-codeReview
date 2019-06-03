@@ -14,7 +14,7 @@ if(typeof window === 'undefined'){
 describe('commonCharacters', function() {
 
   it('should be a function', function() {
-    commonCharacters.should.be.a.Function;
+    commonCharacters.should.be.a.Function();
   });
 
   it('should return something', function(){
@@ -25,14 +25,14 @@ describe('commonCharacters', function() {
   it('should not return an Array', function(){
     // your function is returning an array instead of a string
     var result = commonCharacters('vicapow', 'wopaciv');
-    result.should.not.be.an.Array;
+    result.should.not.be.an.Array();
   });
 
   it('should return a string', function() {
     var string1 = 'i have made a huge mistake';
     var string2 = 'have any of you ever even seen a chicken';
     var result = commonCharacters(string1, string2);
-    result.should.be.a.String;
+    result.should.be.a.String();
   });
 
   it('should return common characters for simple strings', function(){

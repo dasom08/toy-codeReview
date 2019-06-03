@@ -15,13 +15,13 @@ describe('rotateMatrix', function() {
   });
 
   it('should be a function', function() {
-    rotateMatrix.should.be.a.Function;
+    rotateMatrix.should.be.a.Function();
   });
 
   it('should return an array', function() {
     var result = rotateMatrix([]);
     should.exist(result);
-    result.should.be.an.Array;
+    result.should.be.an.Array();
   });
 
   it('should not alter a 0x0 matrix', function () {

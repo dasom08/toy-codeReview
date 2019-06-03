@@ -15,11 +15,11 @@ describe('longestPalindrome', function () {
   });
 
   it('should be a function', function () {
-    longestPalindrome.should.be.a.Function;
+    longestPalindrome.should.be.a.Function();
   });
 
   it('should return a string', function () {
-    longestPalindrome('abc').should.be.a.String;
+    longestPalindrome('abc').should.be.a.String();
   });
 
   it('should return the longest palindrome for single word strings', function(){

@@ -18,7 +18,7 @@ describe('mixEvents', function() {
   
   it('should be a function', function() {
     should.exist(mixEvents);
-    mixEvents.should.be.a.Function;
+    mixEvents.should.be.a.Function();
   });
 
   it('should return the passed in object', function(){
@@ -32,7 +32,7 @@ describe('mixEvents', function() {
       should.exist(mixEvents({}).on);
     });
     it('should be a function', function(){
-      mixEvents({}).on.should.be.a.Function;
+      mixEvents({}).on.should.be.a.Function();
     })
   });
 
@@ -42,7 +42,7 @@ describe('mixEvents', function() {
     });
 
     it('should be a function', function(){
-      mixEvents({}).trigger.should.be.a.Function;
+      mixEvents({}).trigger.should.be.a.Function();
     });
 
     it('should call the callback we pass into `on`', function() {

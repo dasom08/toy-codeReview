@@ -18,7 +18,7 @@ describe('bubbleSort', function() {
   });
 
   it('should be a function', function() {
-    bubbleSort.should.be.a.Function;
+    bubbleSort.should.be.a.Function();
   });
 
   // Note: Any comparison here needs to use eql. Otherwise Mocha will test for

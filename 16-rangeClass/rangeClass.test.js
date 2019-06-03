@@ -17,7 +17,7 @@ describe('Range', function() {
   });
 
   it('should be a function', function(){
-    Range.should.be.a.Function;
+    Range.should.be.a.Function();
   });
 
   it('should be a constructor', function() {

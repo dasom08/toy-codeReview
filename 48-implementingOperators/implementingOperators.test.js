@@ -17,7 +17,7 @@ describe('multiply', function(){
   });
 
   it('should be a function', function(){
-    multiply.should.be.a.Function;
+    multiply.should.be.a.Function();
   });
 
   it('should multiply small integers', function(){
@@ -77,7 +77,7 @@ describe('divide', function(){
     should.exist(divide);
   });
   it('should be a function', function(){
-    divide.should.be.a.Function;
+    divide.should.be.a.Function();
   });
   it('should divide whole numbers', function(){
     divide(4, 2).should.be.below(2 + 0.001);
@@ -142,7 +142,7 @@ describe('modulo', function(){
     should.exist(modulo);
   });
   it('should be a function', function(){
-    modulo.should.be.a.Function;
+    modulo.should.be.a.Function();
   });
   it('should return remainders for whole numbers', function(){
     modulo(0, 10).should.be.equal(0 % 10);

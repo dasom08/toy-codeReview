@@ -18,7 +18,7 @@ describe('toFraction()', function(){
   });
 
   it('should be a function', function(){
-    toFraction.should.be.a.Function;
+    toFraction.should.be.a.Function();
   });
 
   it('should return a result', function(){
@@ -26,7 +26,7 @@ describe('toFraction()', function(){
   });
 
   it('should return a string', function (){
-    toFraction(0.25).should.be.a.String;
+    toFraction(0.25).should.be.a.String();
   });
 
   it('should return the correct fraction 1.0', function(){

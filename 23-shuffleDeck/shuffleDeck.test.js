@@ -31,7 +31,7 @@ describe('shuffleDeck', function() {
   });
 
   it('should be a function', function() {
-    shuffleDeck.should.be.a.Function;
+    shuffleDeck.should.be.a.Function();
   });
 
   it('should return an array', function() {

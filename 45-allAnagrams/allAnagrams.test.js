@@ -17,7 +17,7 @@ describe('allAnagrams', function() {
   });
 
   it('should be a function', function() {
-    allAnagrams.should.be.a.Function;
+    allAnagrams.should.be.a.Function();
   });
 
   it('should return an array', function() {
@@ -34,13 +34,13 @@ describe('allAnagrams', function() {
   it('should return an array of anagrams that contains `lives` for input `elvis`', function(){
     var result = allAnagrams('elvis');
     var found = result.indexOf('lives') !== -1;
-    found.should.be.true;
+    found.should.be.true();
   });
 
   it('should return an array of anagrams that contains `badcredit` for input `debitcard`', function(){
     var result = allAnagrams('debitcard');
     var found = result.indexOf('badcredit') !== -1;
-    found.should.be.true;
+    found.should.be.true();
   });
 
   it('should return all anagrams for \'ab\'', function(){
@@ -50,7 +50,7 @@ describe('allAnagrams', function() {
     for(var i = 0; i < expected.length; i++){
       item = expected[i];
       found = result.indexOf(item) !== -1;
-      found.should.be.true;
+      found.should.be.true();
     }
   });
 
@@ -62,7 +62,7 @@ describe('allAnagrams', function() {
     for(var i = 0; i < expected.length; i++){
       item = expected[i];
       found = result.indexOf(item) !== -1;
-      found.should.be.true;
+      found.should.be.true();
     }
   });
 
@@ -76,7 +76,7 @@ describe('allAnagrams', function() {
       found = result.indexOf(item) !== -1;
       // we should have found the current expected anagram item in your
       // `result` array but we did not!
-      found.should.be.true;
+      found.should.be.true();
     }
   });
 
@@ -96,6 +96,6 @@ describe('allAnagrams', function() {
     // `_.uniq` (ie., if you hae commented out code that still references
     // `_.uniq` in your solution.)
     var usesUniq = allAnagrams.toString().match(/\s*_\.uniq/) === null;
-    usesUniq.should.be.true;
+    usesUniq.should.be.true();
   })
 });

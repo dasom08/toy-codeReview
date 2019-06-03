@@ -17,7 +17,7 @@ describe('isSubsetOf', function(){
   });
 
   it('should be a function', function(){
-    [].isSubsetOf.should.be.a.Function;
+    [].isSubsetOf.should.be.a.Function();
   });
 
   it('should return a value', function(){

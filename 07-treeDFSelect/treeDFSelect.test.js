@@ -23,7 +23,7 @@ describe('DFSelect', function() {
   });
 
   it('should be a function', function() {
-    Tree.prototype.DFSelect.should.be.a.Function;
+    Tree.prototype.DFSelect.should.be.a.Function();
   });
 
   it('should return an array', function() {

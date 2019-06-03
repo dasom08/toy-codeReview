@@ -16,7 +16,7 @@ describe('Tree', function(){
     should.exist(Tree);
   });
   it('should be a function', function(){
-    Tree.should.be.a.Function;
+    Tree.should.be.a.Function();
   });
   it('should be a constructor', function(){
     var tree = new Tree();
@@ -29,7 +29,7 @@ describe('Tree', function(){
     });
     it('should be a function', function(){
       var tree = new Tree();
-      tree.addChild.should.be.a.Function;
+      tree.addChild.should.be.a.Function();
     });
     it('should add a child node', function(){
       var tree = new Tree();
@@ -54,14 +54,14 @@ describe('Tree', function(){
     });
     it('should be a function', function(){
       var tree = new Tree();
-      tree.addChild.should.be.a.Function;
+      tree.addChild.should.be.a.Function();
     });
     it('should check for child nodes', function(){
       var tree = new Tree();
       var child = new Tree();
-      tree.isDescendant(child).should.be.false;
+      tree.isDescendant(child).should.be.false();
       tree.addChild(child);
-      tree.isDescendant(child).should.be.true;
+      tree.isDescendant(child).should.be.true();
     });
   });
   describe('#removeChild', function(){
@@ -71,7 +71,7 @@ describe('Tree', function(){
     });
     it('should be a function', function(){
       var tree = new Tree();
-      tree.removeChild.should.be.a.Function;
+      tree.removeChild.should.be.a.Function();
     });
     it("should remove children", function(){
       var tree = new Tree();
@@ -88,7 +88,7 @@ describe('Tree', function(){
     });
     it('should be a function', function(){
       var tree = new Tree();
-      tree.getAncestorPath.should.be.a.Function;
+      tree.getAncestorPath.should.be.a.Function();
     });
     it('should return the path if child is immediate child', function(){
       // make sure your ancestor path is returning them eldest to youngest
@@ -134,7 +134,7 @@ describe('Tree', function(){
     });
     it('should be a function', function(){
       var tree = new Tree();
-      tree.getClosestCommonAncestor.should.be.a.Function;
+      tree.getClosestCommonAncestor.should.be.a.Function();
     });
     it('should return the root tree when compared to the root tree', function(){
       var trunk = new Tree();
