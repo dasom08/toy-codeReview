@@ -27,8 +27,6 @@ var makeHashTable = function(){
     // TODO: implement `remove`
   };
 
-  }
-
   return result;
 };
 
