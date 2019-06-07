@@ -30,11 +30,7 @@
  *
 */
 
-// Introduce i into the global scope so we can test function efficiency
-var i;
-
 // Feel free to add helper functions if needed.
-
 
 var bubbleSort = function(array) {
   // Your code here.
