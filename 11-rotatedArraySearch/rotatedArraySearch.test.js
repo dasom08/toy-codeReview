@@ -49,7 +49,7 @@ describe("rotatedArraySearch", function (){
 
     describe("and a value that is not in the array", function () {
       it("should return null", function () {
-        should(rotatedArraySearch([1, 2, 3], 5) === null);
+        should(rotatedArraySearch([1, 2, 3], 5)).be.null();
       });
     });
   });
