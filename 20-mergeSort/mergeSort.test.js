@@ -58,12 +58,9 @@ describe('mergeSort', function() {
       var number = Math.floor(Math.random() * n);
       input.push(number);
     }
-    sorted = input.sort(function (a,b) {return a - b;}); // sort numerically, not lexicographically
+    sorted = input.slice().sort(function (a,b) {return a - b;}); // sort numerically, not lexicographically
     var result = mergeSort(input);
 
-    // using .eql can cause an n-line error message to print, so we do it by hand
-    for (var i = 0; i < n; i++) {
-      result[i].should.equal(sorted[i]);
-    }
+    result.should.deepEqual(sorted);
   });
 });
