@@ -31,7 +31,7 @@ describe('composePipe', function(){
       var greet = function(name){return 'hi: ' + name;};
       var exclaim = function(statement){return statement.toUpperCase() + '!'};
       var welcome = compose(greet, exclaim);
-      welcome.should.be.a.Function;
+      welcome.should.be.a.Function();
       welcome('phillip').should.equal('hi: PHILLIP!');
       welcome('kia').should.equal('hi: KIA!');
     });
