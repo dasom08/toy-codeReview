@@ -46,6 +46,7 @@ describe('largestProductOfThree', function() {
   it('should handle negative numbers', function() {
     largestProductOfThree([2, 3, -11, 7, 5, -13]).should.equal(1001);
     largestProductOfThree([-31, 41, 34, -37, -17, 29]).should.equal(47027);
+    largestProductOfThree([-50, 20, 30, 5, 40]).should.equal(24000);
   });
 
   it('should handle all negative numbers', function(){
