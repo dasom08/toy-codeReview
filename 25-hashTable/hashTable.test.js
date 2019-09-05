@@ -5,6 +5,7 @@ var fs = require('fs');
 // if this test is being run on a server it should be ONLY to test the
 // provided solutions
 if(typeof window === 'undefined'){
+  console.log('hello world')
   // looks for a file with the same name as this one but with
   // `.test.js` replaced with `.js`
   var filename = __filename.replace(/\.test\.js$/, '.js');
@@ -147,12 +148,17 @@ describe('hashTable', function(){
   describe('#insert', function(){
     it('should handle collisions', function(){
       var hashTable = makeHashTable();
-      (function(){
-        var n = 1000;
-        for(var i = 0; i < n; i++){
-          hashTable.insert('userid:' + (i++), 'Jamie Hyneman');
-        }
-      }).should.not.throw();
+      var v1 = "val1";
+      var v2 = "val2";
+      var oldHashFunction = getIndexBelowMaxForKey;
+      getIndexBelowMaxForKey = function() {
+        return 0;
+      };
+      hashTable.insert(v1, v1);
+      hashTable.insert(v2, v2);
+      (hashTable.retrieve(v1)).should.be.exactly(v1);
+      (hashTable.retrieve(v2)).should.be.exactly(v2);
+      getIndexBelowMaxForKey = oldHashFunction;
     });
   });
 });
