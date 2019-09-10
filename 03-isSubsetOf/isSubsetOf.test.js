@@ -44,8 +44,25 @@ describe('isSubsetOf', function(){
     ['cat' , 'dog'].isSubsetOf(['dog', 'cat']).should.equal(true);
   });
 
-  it('should handle mixed arrays', function(){
-    [1, 'cat', 3].isSubsetOf([4, 3, 'cat', 1]).should.equal(true);
-    [1, 'cat', 3].isSubsetOf([4, 'cat', 1]).should.equal(false);
+  describe('EXTRA CREDIT', function () {
+    it('should handle number element', function(){
+      [1, 'cat', 3].isSubsetOf([4, 3, 'cat', 1]).should.equal(true);
+      [1, 'cat', 3].isSubsetOf([4, 'cat', 1]).should.equal(false);
+    });
+
+    it('should handle array element', function(){
+      ['alice', ['cat', 'dog']].isSubsetOf(['alice', ['cat', 'dog'], 'bob']).should.equal(true);
+      ['alice', ['cat', 'dog']].isSubsetOf(['alice', 'cat', 'dog', 'bob']).should.equal(false);
+    });
+
+    it('should handle object element', function(){
+      ['alice', 'bob', { name : 'chuck' }].isSubsetOf(['alice', 'bob', { name : 'chuck' }]).should.equal(true);
+      ['alice', { name : 'chuck' }].isSubsetOf(['alice', 'chuck']).should.equal(false);
+    });
+
+    it('should handle mixed arrays with object/array element', function(){
+      ['alice', ['cat'], { name : 'chuck' }].isSubsetOf(['alice', 'bob', ['cat'], { name : 'chuck' }]).should.equal(true);
+      ['alice', ['cat'], { name : 'chuck' }].isSubsetOf(['alice', 'cat', ['chuck']]).should.equal(false);
+    });
   });
 });
