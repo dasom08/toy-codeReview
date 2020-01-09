@@ -41,6 +41,10 @@ describe('nonrepeatedCharacter', function() {
     firstNonRepeatedCharacter('AAAACX').should.equal('C');
   });
 
+  it("should return the first nonrepeating character in the string `AAAAXC`", function() {
+    firstNonRepeatedCharacter("AAAAXC").should.equal("X");
+  });
+
   it('should return the first nonrepeating character in the string `AABCABD`', function(){
     firstNonRepeatedCharacter('AABCABD').should.equal('C');
   });
