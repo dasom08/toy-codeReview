@@ -1,0 +1,29 @@
+{
+  "toy": [
+    {
+      "date": "2020-02-17",
+      "name": "01-rockPaperScissors",
+      "runner": "mocha"
+    },
+    {
+      "date": "2020-02-18",
+      "name": "02-nonrepeatedCharacter",
+      "runner": "mocha"
+    },
+    {
+      "date": "2020-02-20",
+      "name": "03-isSubsetOf",
+      "runner": "mocha"
+    },
+    {
+      "date": "2020-02-21",
+      "name": "04-nthFibonacci",
+      "runner": "mocha"
+    },
+    {
+      "date": "2020-02-24",
+      "name": "05-bubbleSort",
+      "runner": "mocha"
+    }
+  ]
+}
