@@ -13,7 +13,7 @@ async function getTodaysScript() {
 
 (async function() {
   let resp = await getTodaysScript();
-  console.log(resp.data);
+  console.log(resp.data.script);
 })();
 
 module.exports = getTodaysScript;
