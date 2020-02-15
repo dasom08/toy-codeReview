@@ -1,28 +1,19 @@
-const fs = require("fs");
+const axios = require("axios");
 const { CUSTOM_TIMESTAMP } = process.env;
 
-function getTodaysScript() {
-  const runner = fs.readFileSync("./.travis/testrunner.json").toString();
-  const toys = JSON.parse(runner).toy;
-  let today = new Date();
-  if (CUSTOM_TIMESTAMP && CUSTOM_TIMESTAMP.trim() !== "") {
-    today = new Date(CUSTOM_TIMESTAMP);
-  }
-  console.log(`echo ${today.toISOString()}`);
-
-  const dailyToy = toys.filter(
-    toy => toy.date === today.toISOString().slice(0, 10)
-  );
-
-  if (dailyToy.length === 0) return `echo "{}"`;
-
-  let script = "";
-  if (dailyToy[0].runner === "mocha") {
-    script = `mocha ./${dailyToy[0].name} --reporter json`;
-  }
-  return script;
+async function getTodaysScript() {
+  return await axios
+    .get(
+      "https://fgsruyxrxj.execute-api.ap-northeast-2.amazonaws.com/Prod/date"
+    )
+    .catch(e => {
+      throw new Error("lambda is dead");
+    });
 }
 
-console.log(getTodaysScript());
+(async function() {
+  let resp = await getTodaysScript();
+  console.log(resp.data);
+})();
 
 module.exports = getTodaysScript;
