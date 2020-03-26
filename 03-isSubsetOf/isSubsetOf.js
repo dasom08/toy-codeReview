@@ -1,27 +1,24 @@
 /*
- * Make an array method that can return whether or not a context array is a
- * subset of an input array.  To simplify the problem, you can assume that both
- * arrays will contain only strings.
+ * 특정 배열이 매개변수로 전달되는 배열의 부분집합인지를 판단하는 메소드를 만드세요.
+ * 비교 대상인 두 배열 모두 문자열로 이루어졌다고 가정합니다.
  *
- * 
  * var a = ['commit','push']
  * a.isSubsetOf(['commit','rebase','push','blame']) // true
  *
- * NOTE: You should disregard duplicates in the set.
+ * 참고 : 배열 내의 중복값은 무시하세요.
  *
  * var b = ['merge','reset','reset']
  *
- * b.isSubsetOf(['reset','merge','add','commit']) // true 
+ * b.isSubsetOf(['reset','merge','add','commit']) // true
  *
- * See http://en.wikipedia.org/wiki/Subset for more on the definition of a
- * subset.
-*/
+ * 부분집합(subset)의 정의에 대한 자세한 정보는 여기(http://ko.wikipedia.org/wiki/부분집합)를 참고하세요.
+ *
+ */
 
 /*
- * Extra credit: Make the method work for arrays that contain any value,
- * including non-strings.
-*/
+ * Advanced : 메소드가 문자열 이외의 자료형을 포함한 배열에도 작동하도록 개선해 보세요.
+ */
 
-Array.prototype.isSubsetOf = function(array){
-  // Your code here
+Array.prototype.isSubsetOf = function(array) {
+  // TODO: Your code here!
 };

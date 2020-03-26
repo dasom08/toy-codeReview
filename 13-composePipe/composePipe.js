@@ -1,40 +1,35 @@
 /*
- * Write Compose and Pipe functions.
- * 
- * Step 1: Implement the function Compose: 
+ * 합성 함수(Compose function, Pipe function)를 작성하세요.
  *
- * Compose should return a function that is the composition of a list of
- * functions of arbitrary length.
+ * Step 1 : Compose function을 작성하세요:
  *
- * Each function is called on the return value of the function that follows.
+ * Compose function은 다수의 함수가 합성된 함수를 return해야 합니다.
+ * 각 함수의 return값은 다음 함수의 매개변수가 됩니다.
  *
- * You can view compose as moving right to left through its arguments.
+ * Compose 함수는 매개변수들이 오른쪽에서 왼쪽으로 이동합니다.
  *
- * Compose Example:
- *   var greet = function(name){ return 'hi: ' + name;}
- *   var exclaim = function(statement) { return statement.toUpperCase() + '!';}
- *   var welcome = compose(greet, exclaim);
+ * Compose 예시:
+ *   let greet = function(name){ return 'hi: ' + name;}
+ *   let exclaim = function(statement) { return statement.toUpperCase() + '!';}
+ *   let welcome = compose(greet, exclaim);
  *   welcome('phillip'); // 'hi: PHILLIP!'
  *
- * Step 2: Implement the function Pipe:
+ * Step 2 : Pipe function을 작성하세요:
  *
- * Pipe composes a series of functions and returns the resulting function.
- * 
- * Each function is called on the return value of the preceding function.
+ * Pipe function은 Compose function과 같은 기능을 가졌지만 매개변수들이 반대방향(왼쪽에서 오른쪽)으로 이동합니다.
  *
- * You can view pipe as moving left to right through its arguments.
- * 
- * Pipe Example:
- *  var add2 = function(number){ return number + 2; }
- *  var multiplyBy3 = function(number){ return number * 3; }
+ * Pipe 예시:
+ *  let add2 = function (number) { return number + 2; }
+ *  let multiplyBy3 = function (number) { return number * 3; }
  *  pipe(add2, multiplyBy3)(5) // 21
  *  pipe(add2, multiplyBy3, multiplyBy3)(5) // 63
  */
-
 'use strict';
 
-var compose = function(){
+const compose = function() {
+  // TODO: Your code here!
 };
 
-var pipe = function(){
+const pipe = function() {
+  // TODO: Your code here!
 };
