@@ -4,7 +4,7 @@ const { CUSTOM_TIMESTAMP } = process.env;
 async function getTodaysScript() {
   return await axios
     .get(
-      "https://fgsruyxrxj.execute-api.ap-northeast-2.amazonaws.com/Prod/date"
+      "https://fgsruyxrxj.execute-api.ap-northeast-2.amazonaws.com/Prod/date?batch=18"
     )
     .catch(e => {
       throw new Error("lambda is dead");
