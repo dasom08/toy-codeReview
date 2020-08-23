@@ -66,11 +66,12 @@
 // Extra extra credit: Implement `heapSort`. `heapSort` takes an array, constructs it into a `BinaryHeap`
 // and then iteratively returns the root of the `BinaryHeap` until its empty, thus returning a sorted array.
 
+// 힙에 대한 설명 : https://www.youtube.com/watch?v=AE5I0xACpZs
 
 function BinaryHeap () {
   this._heap = [];
   // this compare function will result in a minHeap, use it to make comparisons between nodes in your solution
-  this._compare = function (i, j) { return i < j };
+  this._compare = function (i, j) { return i < j };//return true or false 
 }
 
 // This function works just fine and shouldn't be modified
@@ -80,8 +81,67 @@ BinaryHeap.prototype.getRoot = function () {
 
 BinaryHeap.prototype.insert = function (value) {
   // TODO: Your code here
+  // 부모노드 보다는 값이 커야함. 즉 새로 들어오는 값은, 기존에 있던 값보다 커야함.
+  // 새로 들어오는 값이 더 작다면, 기존값하고 비교해서 위치를 바꿔주어야함. 
+
+
+  let heap = this._heap;
+
+  if(heap.length === 0 ){
+    heap.push(value)
+  }
+  else if(this._compare(heap[heap.length - 1],value)){
+    heap.push(value)
+  } // 크면 그대로 넣어주면 됨. 
+  else if(!this._compare(heap[0],value)){
+    heap.unshift(value)
+  }
+  else{
+  //value 값이 더 작을 경우 [0,1,5,9] value = 7 
+  //1번째 값과 비교한 후 크면 통과. 2번째 값과 비교한 후 크면 통과. 3번째 값과 비교하면 작으므로 넣어주기.
+  //중간에 push로 넣어줄 수가 없으므로 빈배열을 만들어서 넣어주기. 그리고 그 인덱스 값 이후를 다시 넣어준다. 
+  //queue개념을 사용해서 한개씩 빼서 넣어보기.
+
+  let findIndex = ()=>{
+    for(let i = 0; i < heap.length; i++){
+      if(!this._compare(heap[i],value)){
+        return i 
+      }  
+    }
+  }
+  
+  let bigNum = findIndex()
+  let arr = []
+
+  debugger
+
+  for(let i = 0; i < bigNum ; i++){
+    arr.push(heap[0])
+    heap.shift()
+  }
+
+  arr.push(value)
+
+  for(let i = 0; i < heap.length; i++){
+    arr.push(heap[0])
+    heap.shift()
+  }
+  for(let i of arr){
+    heap.push(i)
+  }
+  }
+  //생각해보니 그냥 sort해버리면 그냥 통과할듯. 근데 그건 힙방식이 아닌것 같다. 그리고 구현을 요구하는 방식도 완전한 힙은 아닌걸로 보이는데. 
+  
 }
 
 BinaryHeap.prototype.removeRoot = function () {
-  // TODO: Your code here
+  let heap = this._heap
+  if(heap.length === 0 ){
+    return undefined; 
+  }
+  let root = heap[0]
+  heap.shift();
+  return root
 }
+
+// let binaryHeap = new BinaryHeap()
