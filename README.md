@@ -36,10 +36,10 @@ or 혹은 HA가 막 끝났으므로, 과제관련 얘기를 해보는 것도 좋
    - 11-powerSet
 
 
-2차 : 9/21 월요일 (참여인원 2명, 약 40분)
-_ 03-isSubsetOf
-_ 04-nthFibonacci
-_ 05-bubbleSort
+2. 2차 : 9/21 월요일 (참여인원 2명, 약 40분)
+    - 03-isSubsetOf
+    - 04-nthFibonacci
+    - 05-bubbleSort
 
-1차 : 9/17 수요일 (참여인원 3명, 약 1시간)
-_ 02-nonrepeatedCharacter
+1. 1차 : 9/17 수요일 (참여인원 3명, 약 1시간)
+    - 02-nonrepeatedCharacter
