@@ -32,8 +32,8 @@ or 혹은 HA가 막 끝났으므로, 과제관련 얘기를 해보는 것도 좋
 ### 진행상황
 
 3. 3차 : 9/25 수요일 (참여인원 4명, 약 1시간 30분)
-   > 01-rockPaperScissors
-   > 11-powerSet
+   - 01-rockPaperScissors
+   - 11-powerSet
 
 
 2차 : 9/21 월요일 (참여인원 2명, 약 40분)
