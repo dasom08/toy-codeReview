@@ -29,7 +29,7 @@ tobe. github에 토론 했던 내용들을 적어놓기. (기억력이 ..ㅠㅠ)
    - 19: mergesort
    - 05: bubblesort
 
-   * 다음 차수에.. to be continue.. 
+> 다음 차수에.. to be continue.. 
    - 32: insertsort
    - 33: sort()
 
