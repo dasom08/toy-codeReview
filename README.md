@@ -24,11 +24,11 @@ tobe. github에 토론 했던 내용들을 적어놓기. (기억력이 ..ㅠㅠ)
 ### 다음 일정 
 :running: 4차: 9/28 월요일 ! 오후 9시 예정(퇴근 후 쉬시다가 잠깐 공부하고 뿌듯하게 자요! ㅋㅋ)
 
-> 예정된 리뷰 : 정렬!
-   -19: mergesort
-   -05: bubblesort
-   -32: insertsort
-   -33: sort()
+ > 예정된 리뷰 : 정렬!
+   - 19: mergesort
+   - 05: bubblesort
+   - 32: insertsort
+   - 33: sort()
 
 
 
