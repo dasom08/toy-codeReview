@@ -25,3 +25,6 @@ const powerSet = function (str) {
   };
   
   let str = "bbbaaa"
+  
+  let comment = comment
+  //코멘트 추가 
