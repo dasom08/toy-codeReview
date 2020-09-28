@@ -39,13 +39,20 @@ let i;
 
 // 헬퍼 함수가 필요하다면 얼마든지 만들어서 사용하세요!
 
+// 함수를 독립시켜서 사용할 때 시간복잡도는 어떻게 계산하면 될까? 
+
+
 const bubbleSort = function (array) {
 
-  while(judge(array) === false){
-    compare(array)
+  while(judge(array) === false){ // for문 실행. 기저조건 판별을 위한 for문 실행. 
+    compare(array) //for문 실행
   }
   return array;
 };
+//비교를 해주어야 하므로, 비교하는 함수를 만든다. 
+// [0,7,5,3]
+// 0번째와 1번째를 비교해서, 더 큰 수를 뒤로 보낸다. 
+// compare는 이 작업을 1번 수행한다. 앞쪽 인덱스의 숫자가 더 작으면 변화없음. 
 
 function compare(arr) {
   for (let i = 0; i < arr.length; i++) {
@@ -54,10 +61,14 @@ function compare(arr) {
       let bigger = arr[i]
       arr[i] = small
       arr[i + 1] = bigger
+
     }
   }
   return arr
 }
+//바꿀지 말지 판단을 하는 함수. 
+//0번째 인덱스의 숫자가 1번째 인덱스의 숫자보다 클때만 compare를 실행 시킨다. 
+//1번이라도 뒤의 숫자가 클 경우에는 compare가 실행이 되지만, 정렬되어 있는 경우에는 compare가 실행되지 않는다. 
 
 function judge(arr){
   for(let i = 0; i < arr.length; i++){
@@ -67,8 +78,3 @@ function judge(arr){
   }
   return true
 }
-
-// 정렬이 될때 까지 연산을 반복하면 되는데, 정렬이 되었다는걸 어떻게 판단? 
-// 1) 해당 배열의 가장 큰 수가 맨 끝에 위치하면 정렬이 되었다고 판단
-// 2) if문에 한번도 걸리지 않고 원래의 배열이 리턴된다면 정렬이 되었다고 판단. 
-// 구글링해서 풀었던듯?
