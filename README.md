@@ -27,9 +27,11 @@
 
 1. 스터디 시간에 zoom접속 
 2. 해당 차수 dir에 본인 코드를 올려주세요 :pray:
-   - 예시: 3차_recurs dasom.js 
-   - 올리는 방법 : fork하신 다음 PR날려주시면 됩니다. 
-   - 올리실때 이름_토이명.js( ex. ds_bubblesort.js)로 올려주세요.
+   - 최초에 fork
+   - 이름_토이명.js( ex. ds_bubblesort.js)로 파일을 만들고 본인의 repo에 push
+   - 본인 repo ->  제쪽으로 PR날려주시면 됩니다. 
+   
+   
 3. 스터디 종료 후 공유하고 싶은 내용들이 있다면 :star: history 에 코멘트를 남기실 수 있어요  
 
 
