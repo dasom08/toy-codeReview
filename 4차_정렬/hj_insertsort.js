@@ -45,24 +45,24 @@ var testingTransform = function (array) {
   return transform
 }
 
-//삽입정렬
+//첫번째 시도
 //1. 인접한 숫자와 비교해서
 //2. (오름차순 기준) 자신보다 작으면 자리 바꾸기 => 이때 자신보다 큰게 나올때까지 계속해서 자신 앞에 있는 숫자와 비교해가면서 자리 바꾼다.
 //3. 자신보다 크면 아무것도 하지 않고 다음으로 넘어감
-
-// 그런데 크게보면 삽입정렬은 그냥 현재 값이 자신의 앞에 있는 숫자들을 쭉~ 보고 알맞은 자신의 자리를 찾아가는 것이다.
-
 var insertionSort = function (array) {
   // Your code goes here. Feel free to add helper functions if needed.
   for (let i = 1; i < array.length; i++) {
-    let curr = array[i].value
-    let j = i
-    while (j > 0 && curr < array[j - 1].value) {
-      array[j] = array[j - 1]
-      j--
+    let inx = i
+    for (let j = i - 1; j >= 0; j--) {
+      if (array[inx].value < array[j].value) {
+        let temp = array[j]
+        array[j] = array[inx]
+        array[inx] = temp
+        inx = j
+      } else {
+        break
+      }
     }
-    array[j] = array[i]
   }
-
   return array
 }
