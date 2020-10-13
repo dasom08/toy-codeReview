@@ -38,6 +38,7 @@ const rotatedArraySearch = function (rotated, target) {
       return midIndex; // midIndex를 리턴하고 종료
     }
 
+    // 재귀를 덜 들어가게 할 수는 있겠으나, 없어도 동작한다
     if (rotated[midIndex - 2] === undefined) {
       // 기준점 앞에 원소가 단 하나밖에 없다면,
       if (rotated[first] === target) {
@@ -50,7 +51,7 @@ const rotatedArraySearch = function (rotated, target) {
 
     if (rotated[first] < rotated[midIndex - 1]) {
       // 기준점의 앞쪽이 제대로 정렬되어 있다면,
-      if (target >= rotated[first] && target < rotated[midIndex]) {
+      if (target >= rotated[first] && target <= rotated[midIndex - 1]) {
         // target이, rotated[first]와 rotated[midIndex] 사이에 속한다면, (기준점 앞을 탐색한다)
         return binarySearchRecursion(first, midIndex - 1); // midIndex - 1 을 최대값으로 변경하여, midIndex 기준 왼쪽 배열로 쪼개고 다시 탐색한다.
       } else {
