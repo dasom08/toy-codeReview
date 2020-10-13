@@ -28,7 +28,8 @@ const rotatedArraySearch = function (rotated, target) {
     }
 
     // 2. 비교하는 가상의 배열의 길이가 3개이하일때를 말한다.
-    if (mididx <= 1) {
+    if (last - first <= 2) {
+      //해당 부분 조건 수정
       if (target === rotated[first]) {
         return first;
       } else {
