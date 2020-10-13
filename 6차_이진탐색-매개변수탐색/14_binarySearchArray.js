@@ -21,6 +21,11 @@ const binarySearch = function (array, target) {
       return middleIndex; // index를 리턴한다.
     }
 
+    // 탐색을 마쳤는데 끝까지 결과값이 안 나왔다면,
+    if (first > last) {
+      return null;
+    }
+
     if (target < array[middleIndex]) {
       // middleIndex 기준, target이 그 앞에 있다면,
       return recursion(first, middleIndex - 1); // middleIndex 기준으로 앞쪽 배열을 탐색한다.
