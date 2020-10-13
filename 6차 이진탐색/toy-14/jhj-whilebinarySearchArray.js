@@ -32,31 +32,19 @@ const binarySearch = function (array, target) {
   let start = 0
   let end = array.length - 1
 
-  function recursion(start, end) {
-    if (start > end) {
-      //1. 배열에 아무것도 없는 경우
-      return null
-    } else if (start === end) {
-      //2. 배열에 하나만 남은 경우
-      if (array[start] === target) {
-        // 2-1. 그 하나가 target이면 그걸 return 끝
-        return start
-      } else {
-        // 2-2. 그 하나가 target이 아니면 아에 없는 경우니까 return null 끝
-        return null
-      }
+  while (start <= end) {
+    let mid = Math.floor((start + end) / 2) //C랑 잠깐 헷갈렸는데.. console찍어보니 JS에서는 / 이 소수점 나누기까지 가능하므로 정수로 떨어질 수 있도록 Math.floor 추가
+    // console.log(mid)
+
+    if (array[mid] === target) {
+      return mid
+    } else if (array[mid] < target) {
+      //이 경우 3-1에 해당하므로 왼쪽의 index들은 날려버리기
+      start = mid + 1
     } else {
-      //3. 배열에 아직 검사할 숫자가 많이 남아있는 경우
-      let mid = Math.floor((start + end) / 2)
-      if (array[mid] === target) {
-        return mid
-      } else if (array[mid] > target) {
-        return recursion(start, mid - 1)
-      } else {
-        return recursion(mid + 1, end)
-      }
+      //이 경우 3-2에 해당하므로 오른쪽의 index들은 날려버리기
+      end = mid - 1
     }
   }
-
-  return recursion(start, end)
+  return null //4-2에 해당.
 }
