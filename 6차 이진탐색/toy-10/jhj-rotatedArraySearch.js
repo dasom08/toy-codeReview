@@ -23,45 +23,39 @@
 
 const rotatedArraySearch = function (rotated, target) {
   // TODO : Your code here!
-  let len = rotated.length
-  let start = 0
-  let end = len - 1
 
-  function binarySearch(start, end, target) {
+  let start = 0
+  let last = rotated.length - 1
+
+  function binarySearchRecursion(start, end) {
+    let mid = Math.floor((start + end) / 2)
+
     if (start > end) {
       return null
     } else if (start === end) {
       if (rotated[start] === target) {
         return start
       } else {
-        null
+        return null
       }
     } else {
-      let mid = Math.floor((start + end) / 2)
-      if (rotated[mid] === target) {
+      if (target === rotated[mid]) {
         return mid
       } else if (rotated[start] <= rotated[mid]) {
-        //start~mid까진 정상 정렬
-        if (rotated[start] <= target && target < rotated[mid]) {
-          //이때, target이 start, mid-1 범위 사이에 있으면 end = mid-1
-          binarySearch(start, mid - 1, target)
+        if (target >= rotated[start] && target < rotated[mid]) {
+          return binarySearchRecursion(start, mid - 1)
         } else {
-          //target이 start, mid-1 범위 사이에 없으면 start = mid+1
-          binarySearch(mid + 1, end, target)
+          return binarySearchRecursion(mid + 1, end)
         }
       } else {
-        if (rotated[mid] < target && target <= rotated[end]) {
-          //이때, target이 mid+1, end 범위 사이에 있으면 start = mid+1
-          binarySearch(mid + 1, end, target)
+        if (target >= rotated[mid + 1] && target <= rotated[end]) {
+          return binarySearchRecursion(mid + 1, end)
         } else {
-          //target이 mid+1, end범위 사이에 없으면 end = mid-1
-          binarySearch(start, mid - 1, target)
+          return binarySearchRecursion(start, mid - 1)
         }
       }
     }
   }
 
-  binarySearch(start, end, target)
-
-  return null
+  return binarySearchRecursion(start, last)
 }
