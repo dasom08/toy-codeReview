@@ -5,7 +5,7 @@
  * 작성한 함수는 target의 index값을 return하고, 없으면 null을 return해야 합니다.
  *
  * 예시 :
- * rotatedArraySearch([7 ,8, 9,10, 0, "1", 2, 3, 4, 5, 6 ], 2) === 5
+ * rotatedArraySearch([7 ,8, 9,10, 0, "1", 2, 3, 4, 5, 6 ], 10) === 5
  *
  * rotatedArraySearch([4, 5, 6, 0, 1, 2, 3], 100) === null
  *
@@ -27,16 +27,26 @@ const rotatedArraySearch = function (rotated, target) {
       return mididx;
     }
 
-    // 2. 비교하는 가상의 배열의 길이가 3개이하일때를 말한다.
-    if (last - first <= 2) {
-      //해당 부분 조건 수정
-      if (target === rotated[first]) {
-        return first;
+    // 2. 비교하는 가상의 배열의 길이가 3개이하일때를 말한다. -> 굳이 없어도 된다.
+    // if (last - first <= 2) {
+    //   //해당 부분 조건 수정
+    //   if (target === rotated[first]) {
+    //     return first;
+    //   } else {
+    //     //이미 위의 조건문에서 mididx에 해당하는 값은 일치하지 않는다고 나왔으므로, 재귀를 돌릴때 mididx는 고려X
+    //     return find(mididx + 1, last);
+    //   }
+    // }
+    //요소가 하나인 경우에도 재귀를 돌수있다. 숫자와 undefined 의 비교는 false를 주긴 한다!(이건 자바스크립트에서만)
+    //그런데 다른 언어에서는 위와 같은 부분에서 에러가 발생할 수 있다.
+    if(first === last){
+      if(rotated[first] === target){
+        return first
       } else {
-        //이미 위의 조건문에서 mididx에 해당하는 값은 일치하지 않는다고 나왔으므로, 재귀를 돌릴때 mididx는 고려X
-        return find(mididx + 1, last);
+        return null
       }
     }
+
     //해당 중간값을 기준으로 양쪽이 제대로 정렬되어있는지 점검
     //우선 기준점의 앞쪽부터 점검
     if (rotated[first] < rotated[mididx - 1]) {
@@ -49,14 +59,17 @@ const rotatedArraySearch = function (rotated, target) {
       }
     } else {
       //앞쪽이 제대로 정렬되어있지 않은 경우 ex) [7,8,9,10,0]
-      if (target === rotated[mididx - 1]) {
-        //앞쪽의 가장 끝요소 즉 중간인덱스에서 -1한 인덱스의 요소가 타겟과 같은지 검사
-        return mididx - 1;
-      } else if (target >= rotated[first] && target <= rotated[mididx - 2]) {
+      //rotatedArraySearch([7 ,8, 9,10, 0, 1, "2", 3, 4, 5, 6 ], 10)
+      // if (target === rotated[mididx - 1]) {
+      //   //앞쪽의 가장 끝요소 즉 중간인덱스에서 -1한 인덱스의 요소가 타겟과 같은지 검사
+      //   return mididx - 1;
+      // } else if (target >= rotated[first] && target <= rotated[mididx - 2]) {//해당 조건은 너무 테스트를 위한 조건
+      //실제로는 앞에 정렬이 안되어 있는 경우, 뒤에 답이 있는지 확인해보고, 없으면 다시 앞으로 오되, 중간의 바로 앞에 값을 빼고 재귀 돌려준다.
+      if(target >= rotated[mididx+1] && target <= rotated[last]){
         //맨끝요소를 제외한 가상의 배열에 타겟이 있는 경우만 재귀를 넣어주고
-        return find(first, mididx - 2);
+        return find(mididx+1, last);
       } else {
-        return find(mididx + 1, last);
+        return find(first, mididx-1);
       }
     }
   }
