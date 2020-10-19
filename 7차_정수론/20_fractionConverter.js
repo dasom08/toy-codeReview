@@ -38,16 +38,11 @@ var toFraction = function (number) {
 
   while (
     (top % 2 === 0) & (bottom % 2 === 0) ||
-    (top % 3 === 0) & (bottom % 3 === 0) ||
     (top % 5 === 0) & (bottom % 5 === 0)
   ) {
     if ((top % 2 === 0) & (bottom % 2 === 0)) {
       top = top / 2;
       bottom = bottom / 2;
-    }
-    if ((top % 3 === 0) & (bottom % 3 === 0)) {
-      top = top / 3;
-      bottom = bottom / 3;
     }
     if ((top % 5 === 0) & (bottom % 5 === 0)) {
       top = top / 5;
