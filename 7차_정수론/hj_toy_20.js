@@ -1,16 +1,23 @@
-var toFraction = function (number) {
+vvar toFraction = function (number) {
   let strNum = number.toString();
-  let numLength = strNum.length - 1; //왜냐면 소수점부분을 빼야 진짜 숫자의 갯수이므로 -1을 해준 것.
+  //let numLength = strNum.length - 1; //왜냐면 소수점부분을 빼야 진짜 숫자의 갯수이므로 -1을 해준 것.
   let inputNum = number;
   if (strNum[0] === '-') {
     //주어진 인자가 음수라면
-    numLength = strNum.length - 2; //실제 숫자의 갯수는 소수점과, 마이너스 기호를 뺀 갯수이므로 -2 이다.
-    let minus = strNum.slice(1, strNum.length); //마이너스 기호를 뺀 숫자 부분을 발라냄(소수점자체는 포함)
-    inputNum = parseFloat(minus);
+    //numLength = strNum.length - 2; //실제 숫자의 갯수는 소수점과, 마이너스 기호를 뺀 갯수이므로 -2 이다.
+    //let minus = strNum.slice(1, strNum.length); //마이너스 기호를 뺀 숫자 부분을 발라냄(소수점자체는 포함)
+    strNum = strNum.slice(1, strNum.length);
+    inputNum = parseFloat(strNum);
   }
   //위의 조건문 자체는 음수가 주어졌을때, 마이너스라는 기호를 배제하고 우선 수를 변환시키기 위한 작업을 위해 필요.
 
-  let ten = Math.pow(10, numLength - 1);
+  //let ten = Math.pow(10, numLength - 1);
+  //->이 부분은 미스였다. 10.2 같이 소수점 위의 정수 부분이 두자리 이상인 경우를 인지하지 못했다.
+  let float = strNum.slice(strNum.indexOf('.'), strNum.length);
+  let floatLength = float.length;
+
+  let ten = Math.pow(10, floatLength);
+
   //위의 변수는 소수점을 분수로 만들기 위해, 필요한 10의 제곱 수를 구하기 위함이다.
   //가령 2.5인 경우에는 10^1을 곱하고 그 분모로 들어가게 된다.
 
