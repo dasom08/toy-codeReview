@@ -7,40 +7,98 @@
  * Resize by half whenever utilization drops below 1/4.
  */
 
+/**
+ * Create a hash table with `insert()`, `retrieve()`, and `remove()` methods.
+ * The hashtable does not need to resize but it should still handle collisions.
+ */
+
+//getIndexBelowMaxForKey의 결과값인 index를 storage(즉, hash table)의 index라 생각하고,
+// storage[index]에 [key, value]를 넣는다.
+// storage[index]에 이미 어떤 [key, value]가 들어가 있다면
+// 내 key와 같으면 value를 업데이트 해주고
+// 아니면 chaining.
+// 즉, [      [      [key1, value1], [key2, value2]], , ,[[key3, value3]] ] 이런식이 되도록 구현했다.
+//    storage bucket tuple
 var makeHashTable = function () {
   var result = {};
   var storage = [];
-  var storageLimit = 4;
+  var storageLimit = 1000;
   var size = 0;
+
   result.insert = function (key, value) {
-    // TODO: implement `insert`
-    const index = getIndexBelowMaxForKey(key, (storageLimit * 3) / 4);
-    // const bucket = result[index] || []
-    // bucket.push(value)
-    // result[index] = bucket
-    result[index] = value; // 충돌이 일어나면 chaining으로 연결하는게 아니라 아에 덮어씌우라고 하는구나(should allow valus to be updated)
-    if (result[index].length < 1 / 4) {
-      storageLimit /= 2;
+    // TODO: implement `insert()`
+    let index = getIndexBelowMaxForKey(key, storageLimit);
+    const tuple = [key, value];
+    const bucket = storage[index] || [];
+    let flag = false;
+
+    for (let i = 0; i < bucket.length; i++) {
+      // console.log('hey');
+      if (bucket[i][0] === key) {
+        bucket[i][1] = value;
+        flag = true;
+      }
+    }
+
+    if (flag === false) {
+      bucket.push(tuple);
+      size++;
+    }
+    storage[index] = bucket;
+
+    if (size > 0.75 * storageLimit) {
+      resize(storageLimit * 2);
     }
   };
 
-  //주어진 키에 해당하는 값을 반환한다. 없다면 undefined를 반환한다.
   result.retrieve = function (key) {
-    // TODO: implement `retrieve`
-    const index = getIndexBelowMaxForKey(key, (storageLimit * 3) / 4);
-    if (result[index]) {
-      return result[index]; //should return values previously inserted
+    // TODO: implement `retrieve()`
+    let index = getIndexBelowMaxForKey(key, storageLimit);
+    const bucket = storage[index];
+
+    if (bucket) {
+      for (let i = 0; i < bucket.length; i++) {
+        if (bucket[i][0] === key) {
+          return bucket[i][1];
+        }
+      }
     }
     return undefined;
   };
 
   result.remove = function (key) {
-    // TODO: implement `remove`
-    const index = getIndexBelowMaxForKey(key, (storageLimit * 3) / 4);
-    if (result[index]) {
-      delete result[index];
+    // TODO: implement `remove()`
+    let index = getIndexBelowMaxForKey(key, storageLimit);
+    const bucket = storage[index];
+
+    if (bucket !== undefined) {
+      for (let i = 0; i < bucket.length; i++) {
+        if (bucket[i][0] === key) {
+          size--;
+          return bucket.splice(i, 1);
+        }
+      }
+    }
+
+    if (size < 0.25 * storageLimit) {
+      resize(Math.floor(storageLimit / 2));
     }
   };
+
+  function resize(newLimit) {
+    storageLimit = newLimit;
+
+    let oldStorage = storage.slice();
+    size = 0;
+
+    oldStorage.map((bucket) => {
+      for (let i = 0; i < bucket.length; i++) {
+        result.insert(bucket[i][0], bucket[i][1]);
+      }
+    });
+
+    return;
+  }
 
   return result;
 };
