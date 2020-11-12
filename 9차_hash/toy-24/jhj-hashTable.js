@@ -3,6 +3,13 @@
  * The hashtable does not need to resize but it should still handle collisions.
  */
 
+//getIndexBelowMaxForKey의 결과값인 index를 storage(즉, hash table)의 index라 생각하고,
+// storage[index]에 [key, value]를 넣는다.
+// storage[index]에 이미 어떤 [key, value]가 들어가 있다면
+// 내 key와 같으면 value를 업데이트 해주고
+// 아니면 chaining.
+// 즉, [      [      [key1, value1], [key2, value2]], , ,[[key3, value3]] ] 이런식이 되도록 구현했다.
+//    storage bucket tuple
 var makeHashTable = function () {
   var result = {};
   var storage = [];
@@ -10,40 +17,47 @@ var makeHashTable = function () {
   result.insert = function (key, value) {
     // TODO: implement `insert()`
     let index = getIndexBelowMaxForKey(key, storageLimit);
-    if (storage[index] === undefined) {
-      storage[index] = [];
-      storage[index].push([key, value]);
-    } else {
-      for (let i = 0; i < storage[index].length; i++) {
-        if (storage[index][i][0] === key) {
-          storage[index][i][1] = value;
-        }
+    const tuple = [key, value];
+    const bucket = storage[index] || [];
+    let flag = false;
+
+    for (let i = 0; i < bucket.length; i++) {
+      if (bucket[i][0] === key) {
+        bucket[i][1] = value;
+        flag = true;
       }
-      storage[index].push([key, value]);
     }
+
+    if (flag === false) {
+      bucket.push(tuple);
+    }
+    storage[index] = bucket;
   };
 
-  result.retrieve = function (key /*...*/) {
+  result.retrieve = function (key) {
     // TODO: implement `retrieve()`
     let index = getIndexBelowMaxForKey(key, storageLimit);
-    if (storage[index]) {
-      for (let i = 0; i < storage[index].length; i++) {
-        if (storage[index][i][0] === key) {
-          return storage[index][i][1];
+    const bucket = storage[index];
+
+    if (bucket) {
+      for (let i = 0; i < bucket.length; i++) {
+        if (bucket[i][0] === key) {
+          return bucket[i][1];
         }
       }
     }
     return undefined;
   };
 
-  result.remove = function (key /*...*/) {
+  result.remove = function (key) {
     // TODO: implement `remove()`
     let index = getIndexBelowMaxForKey(key, storageLimit);
-    if (storage[index] !== undefined) {
-      for (let i = 0; i < storage[index].length; i++) {
-        if (storage[index][i][0] === key) {
-          //return storage[index][i][1]
-          return storage[index].splice(i, 1);
+    const bucket = storage[index];
+
+    if (bucket !== undefined) {
+      for (let i = 0; i < bucket.length; i++) {
+        if (bucket[i][0] === key) {
+          return bucket.splice(i, 1);
         }
       }
     }
