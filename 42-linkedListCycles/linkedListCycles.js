@@ -36,5 +36,42 @@ var Node = function(value){
 }
 
 var hasCycle = function(linkedList){
-  // TODO: implement me!
+  let slow = linkedList;
+  let fast = linkedList;
+  
+  // fast.next가 null이면 사이클 없이 종료
+  while(fast && fast.next){
+    slow = slow.next;
+    console.log("slow : ",slow)
+    fast = fast.next.next; 
+    console.log("fast : ",fast)
+    if(slow === fast){
+      return true
+    }
+  }
+  return false
 };
+// https://velog.io/@yujo/JSLeetcode-141.-Linked-List-Cycle
+
+
+  // nodeA가 들어간다. value를 넣어준다. 
+  // 리커젼이 일어난다. 이 리커젼을, setTimeout 시키면
+  // 콜스택에서 리커젼이 사라져 버린다. 
+  // 콜스택 큐로 넘어가기 때문. 
+  
+  // 걍 반복문으로 실행하자.. 
+
+  // function recurs(node){
+  //   if(values.includes(node.value)){
+  //     return true
+  //   }
+  //   else if(node.next === null){
+  //     return false
+  //   }
+  //   else{
+  //     values.push(node.value)
+  //     node[next] = node.next.next 
+  //      return recurs(node.next)
+  //   }
+  // }
+
