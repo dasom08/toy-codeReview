@@ -55,7 +55,6 @@ LinkedList.prototype.contains = function(value){
   }else{
     let temp = this.head; 
     while(temp.value !== value){
-      //4 , 4
       if(temp.next === null){
         return false 
       }
