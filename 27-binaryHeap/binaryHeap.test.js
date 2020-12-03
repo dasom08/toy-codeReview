@@ -33,7 +33,6 @@ describe('BinaryHeap.prototype.insert', function () {
   it('should add a value to an empty BinaryHeap instance', function () {
     var binaryHeap = new BinaryHeap();
     binaryHeap.insert(4);
-
     binaryHeap._heap.length.should.equal(1);
     binaryHeap._heap[0].should.equal(4);
   });
@@ -43,7 +42,6 @@ describe('BinaryHeap.prototype.insert', function () {
     binaryHeap.insert(4);
     binaryHeap.insert(8);
     binaryHeap.insert(12);
-
     binaryHeap._heap.length.should.equal(3);
     binaryHeap._heap[0].should.equal(4);
     binaryHeap._heap[1].should.equal(8);
@@ -57,7 +55,7 @@ describe('BinaryHeap.prototype.insert', function () {
     binaryHeap.insert(9);
     binaryHeap.insert(8);
     binaryHeap.insert(1);
-
+    console.log(binaryHeap)
     var compare = binaryHeap._compare;
     var heap = binaryHeap._heap;
 

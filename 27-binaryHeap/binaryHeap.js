@@ -84,16 +84,17 @@ BinaryHeap.prototype.insert = function (value) {
   // 부모노드 보다는 값이 커야함. 즉 새로 들어오는 값은, 기존에 있던 값보다 커야함.
   // 새로 들어오는 값이 더 작다면, 기존값하고 비교해서 위치를 바꿔주어야함. 
 
-
   let heap = this._heap;
 
   if(heap.length === 0 ){
     heap.push(value)
   }
   else if(this._compare(heap[heap.length - 1],value)){
+    //배열의 마지막값과 새로 주어진 값을 비교해서 배열의 마지막값 < value이면 맨 뒤에 넣기. 
     heap.push(value)
-  } // 크면 그대로 넣어주면 됨. 
+  } 
   else if(!this._compare(heap[0],value)){
+    //배열의 첫번째 값보다 작다면 맨앞에 넣기. 
     heap.unshift(value)
   }
   else{
@@ -113,13 +114,13 @@ BinaryHeap.prototype.insert = function (value) {
   let bigNum = findIndex()
   let arr = []
 
-  debugger
-
   for(let i = 0; i < bigNum ; i++){
     arr.push(heap[0])
+    //arr[4,5]
     heap.shift()
+    //heap[]
   }
-
+  console.log(arr)
   arr.push(value)
 
   for(let i = 0; i < heap.length; i++){
@@ -129,6 +130,7 @@ BinaryHeap.prototype.insert = function (value) {
   for(let i of arr){
     heap.push(i)
   }
+
   }
   //생각해보니 그냥 sort해버리면 그냥 통과할듯. 근데 그건 힙방식이 아닌것 같다. 그리고 구현을 요구하는 방식도 완전한 힙은 아닌걸로 보이는데. 
   
