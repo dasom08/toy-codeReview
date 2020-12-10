@@ -38,7 +38,30 @@ let Tree = function(value) {
 };
 
 Tree.prototype.DFSelect = function(filter) {
-    // TODO: Your code here!
+  let result = []
+  let depth = 0
+
+  let recur = (node)=>{
+
+    // if(node.children.length === 0){
+    //   if(filter(node.value)){
+    //     result.push(node.value)
+    //   } 
+    //   return
+    // }
+
+    if(filter(node.value,depth)){
+      result.push(node.value)
+    }
+    depth++
+    for(let i = 0; i < node.children.length; i++){
+     recur(node.children[i])
+    }
+    depth--
+  }
+
+  recur(this)
+  return result
 };
 
 /*

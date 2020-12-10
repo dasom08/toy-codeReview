@@ -110,6 +110,8 @@ BinaryHeap.prototype.insert = function (value) {
       }  
     }
   }
+  //중간중간 건너뛰면서 비교 
+  //트리구조를 생각해서 자기 부모만 비교하자 
   
   let bigNum = findIndex()
   let arr = []
@@ -120,7 +122,7 @@ BinaryHeap.prototype.insert = function (value) {
     heap.shift()
     //heap[]
   }
-  console.log(arr)
+
   arr.push(value)
 
   for(let i = 0; i < heap.length; i++){
